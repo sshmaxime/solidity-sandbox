@@ -1,6 +1,6 @@
 import { ethers, upgrades } from 'hardhat';
 
-import { Network2, Network2__factory, MyContract2__factory, Network1__factory } from '../typechain';
+import { Network2, Network2__factory, MyContract2__factory } from '../typechain';
 
 const CONTRACT2 = ethers.utils.formatBytes32String('Contract2');
 
@@ -8,8 +8,6 @@ async function main() {
     const accounts = await ethers.getSigners();
 
     // Factories
-    let network1F = (await ethers.getContractFactory('Network2')) as Network1__factory;
-
     let network2F = (await ethers.getContractFactory('Network2')) as Network2__factory;
     let myContract2F = (await ethers.getContractFactory('MyContract2')) as MyContract2__factory;
 

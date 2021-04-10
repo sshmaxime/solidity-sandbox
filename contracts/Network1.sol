@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity 0.6.12;
 
-import "./SystemCore/System1.sol";
+import "./SystemCore/RegistryDirectory.sol";
 import "./SystemCore/Registry.sol";
 
-import "./SystemComponents/Contract1.sol";
+import "./NetworkComponents/Contract1.sol";
 
-contract Network1 is System1, Registry {
+contract Network1 is RegistryDirectory, Registry {
     // No constructor
     constructor() public {}
 
@@ -15,6 +15,6 @@ contract Network1 is System1, Registry {
     }
 
     function conversion() public view returns (string memory) {
-        return MyContract1(addressOf(System1.Contract1)).getString();
+        return MyContract1(addressOf(RegistryDirectory.Contract1)).getString();
     }
 }

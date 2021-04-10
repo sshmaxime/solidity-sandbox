@@ -1,15 +1,14 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity 0.6.12;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "./RegistryDirectory.sol";
+import "./Registry.sol";
 
-import "./../SystemCore/Registry.sol";
-
-contract RegistryClient {
+contract NetworkComponent is RegistryDirectory {
     Registry public registry;
 
-    constructor(address registryAddress) public {
-        registry = Registry(registryAddress);
+    constructor(address networkAddress) public {
+        registry = Registry(networkAddress);
     }
 
     //
