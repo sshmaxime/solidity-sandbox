@@ -56,10 +56,12 @@ describe('network', () => {
         // Deploy network
         network1 = (await upgrades.deployProxy(network1F, { initializer: '__Network_init' })) as Network1;
 
+        // Deploy any kind of NetworkComponents and give them the proxy address
         myContract1 = await myContract1F.deploy(network1.address);
         myContract2 = await myContract2F.deploy(network1.address);
         myContract3 = await myContract3F.deploy(network1.address);
 
+        // Register them in the Network
         await network1.registerAddress(CONTRACT1, myContract1.address);
         await network1.registerAddress(CONTRACT2, myContract2.address);
         await network1.registerAddress(CONTRACT3, myContract3.address);

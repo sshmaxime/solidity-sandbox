@@ -8,8 +8,9 @@
         "build": "hardhat compile",
         "size": "hardhat size-contracts",
         "hhnode": "hardhat node",
-        "test": "NODE_OPTIONS='--max-old-space-size=5120' hardhat test",
-        "testfix": "for f in solidity/test/*.ts; do hardhat test $f; if [ $? != 0 ]; then exit $?; fi; done; echo 'Success, no error !'",
+        "test-deploy": "hardhat run --network localhost scripts/deploy.ts",
+        "test-upgrade": "hardhat run --network localhost scripts/upgrade.ts",
+        "test": "hardhat test",
         "lint": "yarn lint:js && yarn lint:sol",
         "lint:js": "eslint .",
         "lint:sol": "solhint --max-warnings 0 \"solidity/contracts/**/*.sol\""

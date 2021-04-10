@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity 0.6.12;
 
-import "./RegistryDirectory.sol";
-import "./Registry.sol";
+import "./NetworkRegistryDirectory.sol";
+import "./NetworkRegistry.sol";
 
-contract NetworkComponent is RegistryDirectory {
-    Registry public registry;
+contract NetworkComponent is NetworkRegistryDirectory {
+    NetworkRegistry public registry;
 
     constructor(address networkAddress) public {
-        registry = Registry(networkAddress);
+        registry = NetworkRegistry(networkAddress);
     }
 
     //

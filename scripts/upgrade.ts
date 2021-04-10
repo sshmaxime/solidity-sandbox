@@ -4,15 +4,15 @@ import { Network2, Network2__factory, MyContract2__factory } from '../typechain'
 
 const CONTRACT2 = ethers.utils.formatBytes32String('Contract2');
 
-async function main() {
-    const accounts = await ethers.getSigners();
+const PROXY_ADDRESS = '0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e';
 
+async function main() {
     // Factories
     let network2F = (await ethers.getContractFactory('Network2')) as Network2__factory;
     let myContract2F = (await ethers.getContractFactory('MyContract2')) as MyContract2__factory;
 
     // Deploy network
-    let network2 = (await upgrades.upgradeProxy('0x5FC8d32690cc91D4c39d9d3abcBD16989F875707', network2F)) as Network2;
+    let network2 = (await upgrades.upgradeProxy(PROXY_ADDRESS, network2F)) as Network2;
 
     let myContract2 = await myContract2F.deploy(network2.address);
 

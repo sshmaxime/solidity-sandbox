@@ -3,9 +3,10 @@ pragma solidity 0.6.12;
 
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
+import "./NetworkRegistryDirectory.sol";
 import "./../Utils/Utils.sol";
 
-contract Registry is Utils, Initializable, OwnableUpgradeable {
+contract NetworkRegistry is Utils, Initializable, OwnableUpgradeable, NetworkRegistryDirectory {
     struct RegistryItem {
         address contractAddress;
         uint256 name;
